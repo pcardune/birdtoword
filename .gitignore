@@ -1,0 +1,7 @@
+*.pyc
+.Python
+bin
+google_appengine
+include
+lib
+tools
