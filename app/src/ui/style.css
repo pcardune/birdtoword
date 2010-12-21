@@ -46,7 +46,7 @@ strong{
     text-align: center;
     line-height: 20px;
 }
-#splash div{
+#splash a {
     margin-bottom: 10px;
     text-align: center;
     font-size: 500%;
@@ -57,14 +57,14 @@ strong{
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
 }
-#splash div:hover{
+#splash a:hover {
     background: red;
     color: yellow;
 }
-#splash div a{
+#splash a{
     text-decoration: none;
 }
-#splash div a:visited{
+#splash a:visited{
     color: white;
 }
 

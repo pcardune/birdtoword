@@ -231,7 +231,7 @@ birdtoword.GameEntry = Class.extend(
 
 birdtoword.sendChallengeEmail = function(data, callback){
     $.post("/api/challenge/email", data, callback, "json");
-}
+};
 
 birdtoword.getWordDefinitionHtml = function(word, callback){
     $.getJSON(
