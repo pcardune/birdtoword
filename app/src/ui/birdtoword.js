@@ -135,14 +135,7 @@ birdtoword.GameEntry = Class.extend(
             var entry = this;
             var game = this.game;
             function handleKeyPress(event){
-                if (event.originalEvent.keyCode === 37){
-                    // left arrow key
-                    $(this).prev().focus();
-                } else if (event.originalEvent.keyCode === 39){
-                    // right arrow key
-                    $(this).next().focus();
-                }
-                if (event.which >= 32 && event.which <= 127){
+                if (event.which >= 65 && event.which <= 122){
                     entry.word = entry.word.slice(0,charIndex)+String.fromCharCode(event.which)+entry.word.slice(charIndex+1);
                     if (entry.word === entry.originalWord){
                         $(entry.el).find("input").removeClass("fail").removeClass("ok");
@@ -217,6 +210,16 @@ birdtoword.GameEntry = Class.extend(
             for (var i=0; i < this.word.length; i++){
                 $('<input type="text" value="'+this.word[i]+'"/>')
                     .appendTo(this.el)
+                    .keydown(
+                        function(event) {
+                            if (event.originalEvent.keyCode === 37){
+                                // left arrow key
+                                $(this).prev().focus().select();
+                            } else if (event.originalEvent.keyCode === 39){
+                                // right arrow key
+                                $(this).next().focus().select();
+                            }
+                        })
                     .keypress(this.getKeyPressHandler(i));
             }
 
@@ -422,15 +425,15 @@ birdtoword.Game = Class.extend(
             $(this.el)
                 .find(".to-word .time").html(roundedTime).end()
                 .find(".win").html("You made it in "+roundedTime+" seconds with "+this.entries.length+" transformations").show().end()
-                .find(".play-again")
-                    .find("button").click(function(){}).end()
-                .show().focus().end()
-                .find(".share-fb")
-                    .find("button").click(function(){}).end()
-                .show().end()
-                .find(".challenge")
-                    .find("button").click(function(){}).end()
-                .show().end()
+                .find(".play-again").show()
+                    .find("button").click(function(){}).focus().end()
+                .end()
+//                .find(".share-fb")
+//                    .find("button").click(function(){}).end()
+//                .show().end()
+//                .find(".challenge")
+//                    .find("button").click(function(){}).end()
+//                .show().end()
                 .find(".too-hard-button").hide().end();
 
 
@@ -438,15 +441,16 @@ birdtoword.Game = Class.extend(
                 '/api/save-game',
                 data,
                 function(data){
-                    $("#game-history .table-wrapper tr:last").clone()
-                        .find(".from").html(data.fromWord).end()
-                        .find(".to").html(data.toWord).end()
-                        .find(".time").html(data.time).end()
-                        .find(".changes").html(data.changes).end()
-                        .addClass("new")
-                        .insertBefore("#game-history .table-wrapper table tr:first")
-                        .show();
-
+                    if (data) {
+                        $("#game-history .table-wrapper tr:last").clone()
+                            .find(".from").html(data.fromWord).end()
+                            .find(".to").html(data.toWord).end()
+                            .find(".time").html(data.time).end()
+                            .find(".changes").html(data.changes).end()
+                            .addClass("new")
+                            .insertBefore("#game-history .table-wrapper table tr:first")
+                            .show();
+                    }
                 },"json");
         }
     });
