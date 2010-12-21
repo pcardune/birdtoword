@@ -31,31 +31,18 @@ def unzip(path):
 @task
 def getappengine():
     """Download Google App Engine"""
-    if os.path.exists("google_appengine_1.2.7.zip"):
-        cmd("rm google_appengine_1.2.7.zip")
+    if os.path.exists("google_appengine_1.4.0.zip"):
+        cmd("rm google_appengine_1.4.0.zip")
     if os.path.isdir("google_appengine"):
         cmd("rm -rf google_appengine")
-    open("google_appengine_1.2.7.zip","w").write(urllib2.urlopen("http://googleappengine.googlecode.com/files/google_appengine_1.2.7.zip").read())
-    cmd("unzip -uq google_appengine_1.2.7.zip")
-    cmd("rm google_appengine_1.2.7.zip")
-
-@task
-def getjsdoc():
-    """Download the jsdoc toolkit"""
-    filepath = os.path.join("tools","jsdoc_toolkit-2.1.0")
-    if os.path.exists(filepath):
-        print "already downloaded jsdoc toolkit"
-        return
-    download("http://jsdoc-toolkit.googlecode.com/files/jsdoc_toolkit-2.1.0.zip")
-    unzip("jsdoc_toolkit-2.1.0.zip")
-    os.remove("jsdoc_toolkit-2.1.0.zip")
-    os.rename("jsdoc_toolkit-2.1.0", filepath)
+    open("google_appengine_1.4.0.zip","w").write(urllib2.urlopen("http://googleappengine.googlecode.com/files/google_appengine_1.4.0.zip").read())
+    cmd("unzip -uq google_appengine_1.4.0.zip")
+    cmd("rm google_appengine_1.4.0.zip")
 
 @task
 def init():
     """Initialize everything so you can start working"""
     getappengine()
-    getjsdoc()
 
 @task
 def buildbuckets():
