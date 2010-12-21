@@ -233,8 +233,8 @@ class SaveGameRecord(RequestHandler):
         if player is None:
             return
 
-        words = self.request.get("words", allow_multiple=True)
-        times = self.request.get("times", allow_multiple=True)
+        words = self.request.get("words[]", allow_multiple=True)
+        times = self.request.get("times[]", allow_multiple=True)
 
         gameRecord = model.GameRecord(
             player=player,
