@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid_6 history-stats">
+  <h1>Your History</h1>
+  <p>
+    You have used a total of
+    <span class="total-words">{{totalWords}} words</span> in
+    <span class="total-games">{{totalGames}} games</span>.
+  </p>
+  <div id="definition-wrapper">
+    <h1>Definition</h1>
+    <div class="definition"></div>
+  </div>
+</div>
+<div class="grid_6 history-stats">
+  <div>
+    <h1 style="display: inline">Words You've Used</h1>
+    <span>(click for a definition)</span>
+  </div>
+  <p class="word-cloud">
+    {% for word in words %}
+    <span style="font-size: {{word.size}}%"
+          title="Used {{word.count}} times">{{word.word}}</span>
+    {% endfor %}
+  </p>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+{% include "history.js" %}
+</script>
+{% endblock %}

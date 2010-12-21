@@ -1,0 +1,13 @@
+message Word {
+  required int32 id = 1;
+  required string word = 2;
+}
+
+message Path{
+  repeated int32 wordReferences = 1;
+}
+
+message PathFile{
+  repeated Word words = 1;
+  repeated Path paths = 2;
+}

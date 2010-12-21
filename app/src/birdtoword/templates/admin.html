@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block style %}
+<style type="text/css">
+  .player .header .expander{
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .player .header .expander:hover{
+    color: #990000;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="grid_12" id="admin-table">
+<h1>Stats</h1>
+
+<strong colspan="3">total games played: {{gameCount}}</strong>
+<hr/>
+<div>
+{% for player in players %}
+<div class="player">
+  <div class="header">
+    <span class="expander">
+      {{player.games|length}} game{{player.games|length|pluralize}}
+      {{player.key}} {{player.nickname}}
+    </span>
+    {% if player.facebookAccount %}
+      <a href="http://www.facebook.com/profile.php?id={{player.facebookAccount}}">{{player.facebookAccount}}</a>
+    {% endif %}
+  </div>
+  <div style="display: none;">
+    <table>
+      {% for game in player.games %}
+      <tr>
+        <td>{{game.fromWord}}</td>
+        <td>{{game.toWord}}</td>
+        <td>{{game.formattedTime}}</td>
+        <td>{{game.changes}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endfor %}
+
+
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+(function($){
+$(document).ready(
+  function(){
+    $(".player .header .expander").toggle(
+      function(){
+        $(this).parent().next().slideDown();
+      },
+      function(){
+        $(this).parent().next().slideUp();
+      });
+  });
+})(jQuery);
+</script>
+{% endblock %}

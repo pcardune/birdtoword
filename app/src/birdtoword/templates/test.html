@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <title>{% block title %}Bird to Word{% endblock %}</title>
+    <!--link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.6.0/build/reset-fonts/reset-fonts.css" /-->
+    <link rel="stylesheet" type="text/css" href="/ui/reset-fonts.css"/>
+    <link rel="stylesheet" href="/ui/style.css"/>
+    <link rel="stylesheet" href="/ui/960.css"/>
+  </head>
+  <body>
+
+    this is a test:
+    <fb:login-button></fb:login-button>
+    <fb:name uid="loggedinuser" useyou="false"></fb:name>
+
+    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+
+    <script type="text/javascript">
+FB_RequireFeatures(
+    ["XFBML"],
+    function(){
+        FB.init("bd02d19336f0dd5399414f1ef8b6cc9c", "/xd_receiver.htm");
+        FB.Facebook.get_sessionState().waitUntilReady(
+            function(session){
+                FB.Connect.ifUserConnected(function(){console.log("Yep, we are connected!");});
+                console.log("Session is ready and uses is logged in?: ",session);
+//                FB.XFBML.Host.parseDomTree(); 
+            });
+    });
+    </script>
+  </body>
+</html>

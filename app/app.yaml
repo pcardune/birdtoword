@@ -1,0 +1,11 @@
+application: birdtoword
+version: 3
+runtime: python
+api_version: 1
+
+handlers:
+- url: /ui
+  static_dir: src/ui
+
+- url: /.*
+  script: main.py

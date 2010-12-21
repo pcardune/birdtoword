@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid_12">
+  <h1>Explore</h1>
+  <div id="explorer" class="explorer">
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  explorer = new birdtoword.WordExplorer(
+    {
+      el: 'explorer',
+      from: 'cat',
+      autoShow: true
+    });
+</script>
+{% endblock %}

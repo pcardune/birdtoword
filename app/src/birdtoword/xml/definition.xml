@@ -1,0 +1,10 @@
+<definitions>
+	{% for partOfSpeach in definitions %}
+		<definition>
+			<type>{{partOfSpeach.type}}</type>
+			{% for d in partOfSpeach.definition %}
+				<text>{{d}}</text>
+			{% endfor %}
+		</definition>
+	{% endfor %}
+</definitions>

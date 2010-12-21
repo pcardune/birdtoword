@@ -1,0 +1,5 @@
+<words>
+	{% for word in connected %}
+	<word>{{word}}</word>
+	{% endfor %}
+</words>

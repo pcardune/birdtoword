@@ -1,0 +1,441 @@
+/* --------- Generic Styles ------------ */
+h1{
+    font-size: 150%;
+    font-weight: bold;
+}
+em{
+    font-style: italic;
+}
+strong{
+    font-weight: bold;
+}
+
+.big-button{
+    background: black;
+    color: white;
+    border: 10px double white;
+    font-weight: bold;
+    font-size:200%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+.big-button:hover{
+    border: 10px double red;
+}
+
+.medium-button{
+    background: black;
+    color: white;
+    border: 5px double white;
+    font-weight: bold;
+    font-size:150%;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+.medium-button:hover{
+    border: 5px double red;
+}
+
+/* --------- base template styles -------------- */
+#tag-line{
+    font-size: 100%;
+    text-align: center;
+    line-height: 20px;
+}
+#splash div{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 500%;
+    font-weight: bold;
+    line-height: 150px;
+    background: black;
+    color: white;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+#splash div:hover{
+    background: red;
+    color: yellow;
+}
+#splash div a{
+    text-decoration: none;
+}
+#splash div a:visited{
+    color: white;
+}
+
+#beta{
+    text-align: right;
+    height: 0px;
+}
+#beta div{
+    padding: 10px;
+    display: inline;
+    position: relative;
+    left: 65px;
+    bottom: 45px;
+    color: white;
+    background: black;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    font-weight: bold;
+}
+
+#header{
+    background: black;
+    color: white;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+#header #nav{
+}
+#header #nav a,
+#header #nav a:visited{
+    display: inline-block;
+    display: -moz-inline-block;
+    padding: 0px 10px;
+    line-height: 30px;
+    height: 30px;
+    margin: 0 0px 0 0px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+#header #nav a.active{
+    background: white;
+    color: black;
+}
+#header #nav a:hover{
+    text-decoration: underline;
+}
+
+#main{
+    min-height: 300px;
+}
+
+#footer{
+    border-top: 1px solid #ccc;
+    text-align: center;
+    background: black;
+    color: white;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    line-height: 30px;
+    margin-top: 20px;
+}
+
+/* --------------- GAME STYLING ---------------- */
+.game input,
+.game{
+    font-family: Cambria, Georgia, Times, Times New Roman, serif;
+}
+.game span,
+.game input{
+    font-weight: bold;
+}
+.game .fixed-word span,
+.game .fixed-word label{
+    display: inline-block;
+}
+.game .fixed-word label{
+    width: 50px;
+}
+.game .fixed-word span.char{
+    border: 1px solid white;
+    width: 30px;
+    text-align: center;
+    font-size: 150%;
+    margin-right: 10px;
+}
+.game .fixed-word span.time,
+.game .entry .timer{
+    margin-right: 10px;
+}
+.game .fixed-word .please-define{
+    display: none;
+    cursor: pointer;
+}
+.game .fixed-word:hover .please-define{
+    display: inline-block;
+}
+.game .to-word{
+    border-top: 1px solid black;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.game .entries .entry{
+    clear: both;
+    padding-top: 10px;
+}
+.game .entries .entry input:first-child{
+    margin-left: 50px;
+}
+.game .entries .entry input{
+    width: 30px;
+    font-size: 150%;
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid white;
+    color: blue;
+}
+.game .entries .entry input:focus{
+    border: 1px solid blue;
+}
+
+.game .entries .entry input.ok{
+    color: green;
+}
+.game .entries .entry input.fail{
+    color: red;
+}
+.game .win{
+    clear: both;
+    font-size: 150%;
+    color: red;
+    text-align: center;
+}
+.game .too-hard-button{
+    color: green;
+    text-decoration: underline;
+    cursor: pointer;
+    background: transparent;
+    border: 0px;
+}
+
+.game .levels span {
+    margin-right: 10px;
+    display: -moz-inline-block;
+    display: inline-block;
+    cursor: pointer;
+}
+.game .levels span.selected{
+    text-decoration: underline;
+}
+
+/** -------------- Word Explorer Styles --------------- */
+
+.explorer{
+    clear: both;
+    overflow: auto;
+}
+
+.explorer .explorer-page{
+    display: inline;
+    display: inline-block;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-right: 0px;
+}
+.explorer .explorer-page h1{
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.explorer .explorer-page ul{
+    height: 200px;
+    overflow: auto;
+}
+.explorer .explorer-page li{
+    padding: 2px;
+    cursor: pointer;
+}
+.explorer .explorer-page li:hover{
+    background: #eee;
+}
+.explorer .explorer-page li.selected:hover{
+    background: #edc;
+}
+.explorer .explorer-page li.selected{
+    background: #fed;
+}
+.explorer .explorer-page li em {
+    color: red;
+}
+
+/* ---------- front page styling ------------- */
+
+#game-wrapper .buttons{
+    text-align: center;
+}
+#start-playing-button{
+    margin-top: 80px;
+}
+#start-playing-button:hover{
+    color: yellow;
+}
+
+#main{
+    font-family: Cambria, Georgia, Times, Times New Roman, serif;
+    margin-top: 20px;
+}
+#game-instructions p{
+    font-size: 110%;
+    text-align: justify;
+}
+#definition-wrapper strong{
+    font-style: italic;
+    font-size: 140%;
+}
+#definition-wrapper ul{
+    padding-left: 30px;
+}
+#definition-wrapper ul li{
+    font-weight: bold;
+    list-style: outside;
+}
+#definition-wrapper ol{
+    padding-left: 30px;
+}
+#definition-wrapper ol li{
+    font-weight: normal;
+    list-style: outside decimal;
+}
+
+/* ------------- Game History Styles ------------ */
+#game-history .table-wrapper{
+    height: 300px;
+    overflow: auto;
+}
+#game-history table{
+    width: 100%;
+    table-layout: fixed;
+}
+#game-history table th{
+    font-weight: bold;
+    border-bottom: 1px dotted black;
+    text-align: center;
+}
+#game-history table td.from,
+#game-history table td.to{
+    text-align: center;
+}
+#game-history table td.changes,
+#game-history table td.time{
+    text-align: right;
+    padding-right: 3px;
+}
+
+#game-history table tr.even{
+    background: #f5f5f5;
+}
+
+#game-history table tr.new{
+    background: #ffffee;
+}
+
+.history-stats .total-games,
+.history-stats .total-words{
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.history-stats .word-cloud span{
+    cursor: pointer;
+}
+
+/* ------------ Sharing Buttons --------------- */
+#main a.fb_share_button{
+    color: transparent;
+    width: 0px;
+    padding: 1px 16px 0 0;
+    border: 0px;
+}
+
+
+/* ----------- admin area ---------------- */
+#admin-table table{
+    border: 1px solid black;
+}
+#admin-table td{
+    padding: 3px;
+    border: 1px solid black;
+}
+
+/* ----------- Challenge Window Styles ------------------ */
+/*
+#challenge-friend{
+    margin-left: 280px;
+}
+
+#challenge-friend-shadow{
+    position: absolute;
+    top: 230px;
+    background: black;
+    opacity: .5;
+    height: 320px;
+    width: 400px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    z-index: 0;
+    border: 1px solid white;
+}
+
+#challenge-friend-window{
+    position: absolute;
+    top: 240px;
+    margin-left: 10px;
+    width: 380px;
+    height: 300px;
+    background: white;
+    border: 1px solid black;
+    z-index: 10;
+}
+
+#challenge-friend-window h1{
+    background: #eeeeee;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#challenge-friend-menu{
+    padding: 5px;
+    padding-bottom: 0px;
+    font-size: 80%;
+    border-bottom: 1px solid #ccc;
+}
+#challenge-friend-menu span{
+    cursor: pointer;
+    padding: 0 5px;
+}
+#challenge-friend-menu span.selected{
+    border: 1px solid #ccc;
+    border-bottom: 1px solid white;
+}
+#challenge-friend-window .window-content{
+    padding: 10px;
+}
+*/
+#challenge-friend-form{
+    font-size: 90%;
+}
+
+#challenge-friend .error{
+    padding: 3px;
+}
+
+#challenge-friend .form-row{
+    margin-bottom: 5px;
+}
+#challenge-friend label{
+    display: -moz-inline-block;
+    display: inline-block;
+    width: 70px;
+}
+#challenge-friend input[type=text]{
+    width: 295px;
+}
+#challenge-friend textarea{
+    width: 100%;
+    height: 100px;
+}
+#challenge-friend-buttons{
+    text-align: right;
+}

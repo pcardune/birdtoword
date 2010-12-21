@@ -1,0 +1,30 @@
+<fb:header>Bird to Word</fb:header>
+
+{% if fb.session_key %}
+<fb:profile-pic uid="loggedinuser" />
+Welcome <fb:name uid="{{fb.uid}}" useyou="false"/>
+
+<br />
+<a href="{{fb.get_add_url}}">Add Bird to Word to your profile!</a>
+
+<h1>Your Bird to Word Stats</h1>
+<table>
+  {% for game in games %}
+  <tr class="{% cycle odd,even %}">
+    <td class="from">{{game.fromWord}}</td>
+    <td class="to">{{game.toWord}}</td>
+    <td class="time">{{game.formattedTime}}</td>
+    <td class="changes">{{game.changes}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<fb:prompt-permission perms="status_update"> Grant permission for status updates </fb:prompt-permission>
+
+{% endif %}
+
+
+
+{% if not fb.session_key %}
+<a href="{{fb.get_login_url}}">Please Login</a>
+{% endif %}

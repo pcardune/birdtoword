@@ -1,0 +1,18 @@
+<fb:header>Bird to Word</fb:header>
+
+Welcome <fb:name uid="{{fb.uid}}" useyou="false"/>
+
+<br />
+
+<h1>Your Bird to Word Stats</h1>
+<table>
+  {% for game in games %}
+  <tr class="{% cycle odd,even %}">
+    <td class="from">{{game.fromWord}}</td>
+    <td class="to">{{game.toWord}}</td>
+    <td class="time">{{game.formattedTime}}</td>
+    <td class="changes">{{game.changes}}</td>
+  </tr>
+  {% endfor %}
+</table>
+

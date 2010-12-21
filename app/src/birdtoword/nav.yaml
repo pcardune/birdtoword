@@ -1,0 +1,14 @@
+- title: Home
+  url: /
+  login: false
+  id: home
+
+- title: History
+  url: /history
+  login: true
+  id: history
+
+#- title: Labs
+#  url: /labs
+#  login: false
+#  id: labs
