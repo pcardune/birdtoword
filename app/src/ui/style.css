@@ -185,6 +185,8 @@ strong{
 }
 .game .entries .entry input:focus{
     border: 1px solid blue;
+    outline: none;
+    -webkit-appearance: button;
 }
 
 .game .entries .entry input.ok{
