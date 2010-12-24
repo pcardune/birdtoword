@@ -1,0 +1,50 @@
+#game-instructions.grid_3
+  h1 Instructions
+  p
+    | You will be given two words with the same number of letters
+    | &bull;
+    | Your goal is to turn the first word into the second word
+    | &bull;
+    | You may only change one letter at a time and each change of a letter must
+    | form a real word
+    | &bull;
+    | For example, going from <em>cat</em> to <em>dog</em> would look like
+    | <em>cat &rarr; cot &rarr; cog &rarr; dog</em>
+    | &bull;
+    | Try to get from one word to the other as fast as you can and with the
+    | smallest number of changes
+    | &bull;
+    | As you play more games, your <em>Word IQ</em> will slowly improve based on
+    | the words you use
+    | &bull;
+    | To start playing, click the big fat button
+  br
+  a(href="http://facebook.com") Facebook Login Button Here
+
+.grid_6
+  #game-wrapper
+    .buttons
+      button#start-playing-button.big-button Start Playing
+    #game
+  #definition-wrapper(style="display: none;")
+    h1 Definition
+    .definition
+
+
+#templates
+  .game(style="display: none")
+    .levels
+      span 3 letter words
+      span 4 letter words
+      span 5 letter words
+    .from-word.fixed-word
+    .entries
+    .to-word.fixed-word
+    .win(style="display: none")
+    .play-again(style="display: none")
+      button.medium-button Play Again
+    .share-fb(style="display: none")
+      button.medium-button Tell your friends on Facebook
+    .challenge(style="display: none")
+      button.medium-button Challenge your friends
+    span.too-hard-button This one is too hard for me
