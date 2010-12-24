@@ -20,6 +20,10 @@ function Bucket(data) {
 }
 
 Bucket.prototype = {
+  getConnected: function(word) {
+    return this.data[word] || [];
+  },
+
   getPath: function() {
     var wordPath = null;
     var count = 0;
@@ -81,3 +85,4 @@ LazyBuckets.prototype = {
 };
 
 exports.BUCKETS = new LazyBuckets();
+exports.getBucket = _.bind(exports.BUCKETS.getBucket, exports.BUCKETS);
