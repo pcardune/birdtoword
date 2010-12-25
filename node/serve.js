@@ -1,6 +1,9 @@
-var express = require('express');
-var jade = require('jade');
-var graph = require('./graph.js');
+var
+  express = require('express'),
+  jade = require('jade'),
+  MemoryStore = require('connect/middleware/session/memory'),
+  _ = require('underscore'),
+  graph = require('./graph.js');
 
 var app = express.createServer(
   express.logger(),
@@ -10,7 +13,7 @@ var app = express.createServer(
 app.configure(
   function(){
     app.use(express.cookieDecoder());
-    app.use(express.session());
+    app.use(express.session({store:new MemoryStore({reapInterval: 60000 * 10 })}));
     app.use(express.methodOverride());
     app.use(express.bodyDecoder());
     app.use(app.router);
@@ -55,6 +58,24 @@ app.get(/\/api\/words\/(.*)\/connected/, function(req, res) {
   });
 });
 
+app.post('/api/save-game', function(req, res) {
+  var
+    words = req.param("words"),
+    times = req.param("times");
+
+  if (!req.session.games) {
+    req.session.games = [];
+  }
+
+  req.session.games.push({
+    fromWord: words[0],
+    toWord: _.last(words),
+    words: words.slice(1, words.length-1),
+    times: [times.map(function(t){ return parseFloat(t); })]
+  });
+
+  res.send(null);
+});
 
 var port = 3000;
 console.log("running on port", port);

@@ -84,5 +84,4 @@ LazyBuckets.prototype = {
   }
 };
 
-exports.BUCKETS = new LazyBuckets();
-exports.getBucket = _.bind(exports.BUCKETS.getBucket, exports.BUCKETS);
+module.exports = new LazyBuckets();
