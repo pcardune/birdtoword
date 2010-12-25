@@ -29,6 +29,27 @@
   #definition-wrapper(style="display: none;")
     h1 Definition
     .definition
+#game-history.grid_3
+  h1 History
+  table
+    tr
+      th.from From
+      th.to To
+      th.time Time
+      th.changes Changes
+  .table-wrapper
+    table
+      - each game in games
+        tr
+          td.from #{game.fromWord}
+          td.to #{game.toWord}
+          td.time #{game.formattedTime}
+          td.changes #{game.changes}
+      tr(style="display: none;")
+        td.from
+        td.to
+        td.time
+        td.changes
 
 
 #templates
